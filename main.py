@@ -29,7 +29,7 @@ def load_fonts_from_dir(directory):
         _id = QFontDatabase.addApplicationFont(file.absoluteFilePath())
         data = set(QFontDatabase.applicationFontFamilies(_id))
         families |= data
-        data = str(data).replace(' ',' ')
+        data = str(data)
         familiesList.append(str(data).replace("{'",'').replace("'}",''))
     print()
     for file in fileList_TTC:
@@ -125,7 +125,7 @@ class Window(QWidget):
         for i in  range(len(families)):
             FontListLine.append(QPushButton(text))
             #FontListLine[i].setFont(db.font(familiesList[i], "Regular", fontSize))
-            FontListLine[i].setFont(QFont(familiesList[i], fontSize))
+            FontListLine[i].setFont(QFont(families[i], fontSize))
             FontListLine[i].setMaximumHeight(150)
             FontListLine[i].setMaximumWidth(600)
             layout_lower.addWidget(FontListLine[i], i // RowNum, i % RowNum)
@@ -168,7 +168,7 @@ class Window(QWidget):
         db = QFontDatabase()
         for i in  range(len(families)):
             FontListLine[i].setText(text)
-            FontListLine[i].setFont(QFont(familiesList[i], fontSize))
+            FontListLine[i].setFont(QFont(families[i], fontSize))
         
     def fontSizeUp(self):
         global fontSize
