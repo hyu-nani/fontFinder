@@ -1,9 +1,7 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-from PyQt5 import uic
 from PyQt5.QtCore import *
-import time
 from PySide2.QtUiTools import loadUiType
 import os
 from pathlib import Path
@@ -127,9 +125,9 @@ class Window(QWidget):
 
     def copy(self, stat, choice):
         num = int(choice)
-        print(num)
+        #print(num)
         name = familiesList[num]
-        print(name)
+        #print(name)
         clipboard.copy(name)
         QMessageBox.question(self, '알림', '이름이 복사되었습니다.', QMessageBox.Yes)
 
