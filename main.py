@@ -13,7 +13,7 @@ text = 'ABab12가나'
 fontSize = 30
 choise = 0
 FontListLine = []
-fileList = os.listdir('fonts')
+fileList = os.listdir(str(CURRENT_DIRECTORY)+'/fonts')
 familiesList = []
 RowNum = 6
 def load_fonts_from_dir(directory):
